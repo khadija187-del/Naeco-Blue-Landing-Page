@@ -1,0 +1,445 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #201c58; 
+  padding: 15px 30px;
+}
+
+.logo img {
+  height: 52px; 
+  width: auto;
+}
+
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links > li {
+  position: relative;
+  margin-right: 25px;
+}
+
+.nav-links > li > a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-links > li > a:hover {
+  color: #abce00; 
+}
+
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  min-width: 200px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.nav-links > li:hover .dropdown {
+  display: block;
+}
+
+.dropdown li a {
+  display: block;
+  padding: 8px 15px;
+  color: #201c58;
+  text-decoration: none;
+}
+
+.dropdown li {
+  position: relative; /* needed so a sub-dropdown knows where to appear */
+}
+
+.dropdown li a:hover {
+  background-color: #f0f0f0;
+}
+
+/* the second-level dropdown (inside Forecasts, Weather, Services) */
+.sub-dropdown {
+  display: none;
+  position: absolute;
+  top: -10px;
+  left: 100%; /* opens to the right of its parent item */
+  background-color: white;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  min-width: 220px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* show the sub-dropdown when hovering its own li */
+.dropdown li:hover > .sub-dropdown {
+  display: block;
+}
+
+/* icons + dashboard button on the right side */
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icons a:not(.dashboard-btn) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.icons img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.dashboard-btn {
+  background-color: #abce00;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+
+.dashboard-btn:hover {
+  background-color: #bfe200;
+}
+
+/* ===================== HERO / MAIN SECTION ===================== */
+.hero {
+  padding: 70px 40px;
+  background-color: #f7f8fb; /* light gray - keeps it separate from the navy navbar */
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1100px; /* stops the content from spreading across a wide screen */
+  margin: 0 auto; /* centers that 1100px block in the middle of the page */
+}
+
+.hero-text {
+  text-align: left;
+  max-width: 500px;
+}
+
+.hero-text h1 {
+  font-size: 36px;
+  color: #201c58;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 16px;
+  color: #4b4e6d;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 12px;
+}
+
+.btn-primary {
+  background-color: #abce00;
+  color: #201c58;
+}
+
+.btn-primary:hover {
+  background-color: #bfe200;
+}
+
+.btn-secondary {
+  background-color: #201c58;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #16133e;
+}
+
+/* the little "forecast graph" card - now sits on the right side */
+.chart-card {
+  background-color: white;
+  width: 100%;
+  max-width: 380px;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(32, 28, 88, 0.1);
+  flex-shrink: 0; /* stops the card from getting squeezed smaller than its max-width */
+}
+
+.chart-title {
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+  color: #201c58;
+  margin-bottom: 10px;
+}
+
+
+.chart {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chart-stat {
+  text-align: left;
+  font-size: 14px;
+  color: #4b4e6d;
+  margin-top: 10px;
+}
+
+@media (max-width: 800px) {
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+}
+
+.featured {
+  background-color: #201c58;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.featured h2 {
+  color: white;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: white;
+  width: 200px;
+  border-radius: 16px;
+  overflow: hidden; 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+/* the navy strip at the top of the card, holding the icon */
+.card-icon {
+  background-color: #201c58;
+  padding: 24px 0;
+  text-align: center;
+}
+
+.card-image {
+  width: 80px;
+  height: 80px;
+}
+
+/* the white box that holds the title, text and button */
+.card-content {
+  background-color: white;
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* fills the rest of the card, since .card is stretched equal-height */
+}
+
+.card-content h3 {
+  color: #201c58;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  color: #4b4e6d;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* pushes the button to the bottom of the card no matter how long the paragraph is */
+.card-content .btn-primary {
+  color: white;
+  margin-top: auto;
+  align-self: flex-start; /* keeps the button its normal width, not full-width */
+  white-space: nowrap; /* stops "Learn More >" from wrapping onto two lines */
+}
+
+/* on small screens, let cards wrap and center themselves */
+@media (max-width: 700px) {
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.chat-bubble {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #abce00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(32, 28, 88, 0.3);
+  z-index: 1000;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.chat-bubble:hover {
+  background-color: #bfe200;
+  transform: scale(1.08);
+}
+
+footer {
+  background-color: #f7f8fb; /* light background, matches hero - flips the color relationship vs the navy features section above it */
+  padding: 60px 40px 30px 40px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* brand mark: icon + text */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-brand-icon {
+  height: 56px; /* bumped up from 36px */
+  width: auto;
+}
+
+.footer-brand-text {
+  color: #201c58;
+  font-size: 26px; /* bumped up from 18px */
+  font-weight: bold;
+}
+
+.footer-column h4 {
+  color: #201c58; /* navy headings instead of lime, since lime-on-white is too low contrast */
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+.footer-column a {
+  display: block;
+  color: #201c58; /* navy, much more readable than the light gray */
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.footer-column a:hover {
+  color: #abce00; /* lime hover accent still works well against light bg */
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #201c58;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.social-icon:hover {
+  background-color: #abce00;
+  color: #201c58;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(32, 28, 88, 0.1); /* faint navy divider line instead of white */
+}
+
+.footer-bottom p {
+  color: #201c58;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-brand {
+    justify-content: center;
+  }
+}
